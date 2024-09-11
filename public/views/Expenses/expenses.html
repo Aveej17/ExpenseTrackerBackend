@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Page</title>
+</head>
+<body>
+    <form onsubmit="handleFormSubmit(event)">
+        <h1 class="mb-4">Expense Tracker</h1>
+        <form onsubmit="handleFormSubmit(event)">
+            
+                <label for="amount" >Choose Expense Amount</label>
+                <input type="number" id="amount" name="amount"  required>
+            
+                <label for="description" >Choose Description</label>
+                <input type="text" id="description" name="description"  required>
+           
+                <label for="category" >Choose Category</label>
+                <select id="category" name="category" required>
+                    <option>Movie</option>
+                    <option>Food</option>
+                    <option>Rent</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                </select>
+            
+            <button type="submit" >Add Expense</button>
+        </form>
+        <button id="rzp-button" type="submit">BuyPremium</button>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <p id="premium-message" style="display: none;">You are a premium user!</p>
+        <button id="show leaderBoard" type="submit" style="display: none;">Show Leader Board</button>
+        <button id="downloadFile" type="submit" style="display: none;">Download File</button>
+        <br><br>
+        <h1>Expenses</h1>
+        <br>
+        <div id="expenseList"></div> 
+        <div id="pagination"></div>
+        <select id="rows">
+            <option>5</option>
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+        </select>
+   
+        <h1 id="leaderBoard" style="display: none;">Leader Board</h1>
+        <ul  id="leaderBoardItem"></ul>
+        <button id="downloadFile" type="submit" style="display: none;">Download File</button>
+        <br><br>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+    <script src="expenses.js"></script>
+</body>
+</html>
