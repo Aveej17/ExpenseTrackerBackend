@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 
 const express = require('express');
@@ -18,8 +19,9 @@ const app = express();
 
 // const privateKey = fs.readFileSync('server.key');
 // const certificate =  fs.readFileSync('server.cert');
-//Helmet Secure Connection
-app.use(helmet());
+
+//Helmet Secure Connection  with helmet resource rendering is not happenning need to learn
+// app.use(helmet());
 
 app.use(compression());
 
@@ -52,6 +54,9 @@ app.use('/expenses', expenseRoutes);
 app.use('/purchase', purchaseRoutes);
 app.use('/premium', premiumRoutes);
 app.use('/password', resetPasswordRoutes);
+app.use((req, res)=>{
+    res.sendFile(path.join(__dirname, `public/views/${req.url}`));
+})
 
 // Associations
 User.hasMany(Expense);
