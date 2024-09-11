@@ -24,7 +24,7 @@ async function handleFormSubmit(event){
 
     try {
         // Send POST request to log in the user
-        const response = await axios.post("http://localhost:3000/users/login", userDetails);
+        const response = await axios.post("http://44.211.253.232:3000/users/login", userDetails);
 
         alert("User logged in successfully");
         localStorage.setItem('token', response.data.token);

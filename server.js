@@ -23,6 +23,13 @@ const app = express();
 //Helmet Secure Connection  with helmet resource rendering is not happenning need to learn
 // app.use(helmet());
 
+app.use(cors({origin: 'http://44.211.253.232:3000',
+		methods: ['GET', 'POST'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true // If you're using cookies or other credentials
+
+}));
+
 app.use(compression());
 
 app.use(morgan('combined'));
@@ -46,7 +53,7 @@ const premiumRoutes = require('./route/premium');
 const resetPasswordRoutes = require('./route/resetPassword');
 
 //cors
-app.use(cors());
+//app.use(cors());
 
 
 app.use('/users', userRoutes);
