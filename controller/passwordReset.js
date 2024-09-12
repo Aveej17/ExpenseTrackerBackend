@@ -31,7 +31,7 @@ const forgotpassword = async (req, res) => {
                 from: 'ExpenseTracker@gmail.com', // Your sender email address
                 to: email, // Recipient email
                 subject: 'Password Reset Request',
-                html: `<a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>`, // HTML body
+                html: `<a href="http://44.211.253.232:3000/password/resetpassword/${id}">Reset password</a>`, // HTML body
             };
 
             // Send the email using Nodemailer with Mailtrap

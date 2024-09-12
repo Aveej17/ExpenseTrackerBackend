@@ -19,7 +19,7 @@ async function handleFormSubmit(event) {
         
         
         // Send POST request to save expense in the database
-        let response = await axios.post("http://localhost:3000/expenses/create", expenseDetails, {headers: {
+        let response = await axios.post("http://44.211.253.232:3000/expenses/create", expenseDetails, {headers: {
             Authorization: 'Bearer ' + token}
         });
   
@@ -70,7 +70,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         // Function to fetch and display expenses for a specific page
         const fetchExpenses = async (page) => {
             try {
-                let response = await axios.get(`http://localhost:3000/expenses/get?page=${page}&limit=${limit}`, {
+                let response = await axios.get(`http://44.211.253.232:3000/expenses/get?page=${page}&limit=${limit}`, {
                     headers: { Authorization: 'Bearer ' + token }
                 });
 
@@ -195,7 +195,7 @@ function addExpenseToList(expenseDetails) {
             const token = localStorage.getItem('token');
 
             // Send DELETE request to remove expense from the database
-            await axios.delete(`http://localhost:3000/expenses/delete/${expenseDetails.id}`, {headers: {
+            await axios.delete(`http://44.211.253.232:3000/expenses/delete/${expenseDetails.id}`, {headers: {
             Authorization: 'Bearer ' + token}
         });
 
@@ -223,7 +223,7 @@ function addExpenseToList(expenseDetails) {
         
         const token = localStorage.getItem('token');
 
-        await axios.delete(`http://localhost:3000/expenses/delete/${expenseDetails.id}`, {headers: {
+        await axios.delete(`http://44.211.253.232:3000/expenses/delete/${expenseDetails.id}`, {headers: {
             Authorization: 'Bearer ' + token}
         });
         
@@ -247,7 +247,7 @@ document.getElementById('rzp-button').onclick = async function (e) {
 
     try {
         // Send request to backend to initiate the premium membership purchase
-        const response = await axios.get('http://localhost:3000/purchase/premiumMembership', {
+        const response = await axios.get('http://44.211.253.232:3000/purchase/premiumMembership', {
             headers: {
                 Authorization: 'Bearer ' + token
             }
@@ -262,7 +262,7 @@ document.getElementById('rzp-button').onclick = async function (e) {
                 // Handle the payment success event
                 try {
                     // Inform backend of the completed payment
-                    await axios.post('http://localhost:3000/purchase/updateTransactionStatus', {
+                    await axios.post('http://44.211.253.232:3000/purchase/updateTransactionStatus', {
                         order_id: options.order_id,
                         payment_id: response.razorpay_payment_id,
                         status: 'Completed' // Payment completed successfully
@@ -288,7 +288,7 @@ document.getElementById('rzp-button').onclick = async function (e) {
                 ondismiss: async function () {
                     // Handle the payment failure or if the user closes the payment window
                     try {
-                        await axios.post('http://localhost:3000/purchase/updateTransactionStatus', {
+                        await axios.post('http://44.211.253.232:3000/purchase/updateTransactionStatus', {
                             order_id: options.order_id,
                             status: 'Failed' // Payment failed or dismissed
                         }, {
@@ -373,7 +373,7 @@ document.getElementById('rzp-button').onclick = async function (e) {
 document.getElementById('show leaderBoard').onclick = async function (e) {
 
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:3000/premium/leaderBoard',{headers: {
+    const response = await axios.get('http://44.211.253.232:3000/premium/leaderBoard',{headers: {
         Authorization: 'Bearer ' + token}
     });
     // console.log(response.data);
@@ -413,7 +413,7 @@ document.getElementById("downloadFile").onclick = async (e)=>{
         }
 
         // Make the GET request with the authorization token
-        const response = await axios.get('http://localhost:3000/expenses/downloadFile', {
+        const response = await axios.get('http://44.211.253.232:3000/expenses/downloadFile', {
             headers: { Authorization: 'Bearer ' + token }
         });
 
