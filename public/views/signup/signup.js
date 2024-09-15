@@ -12,7 +12,7 @@ async function handleFormSubmit(event){
         
 
         // Send POST request to save expense in the database
-        let response = await axios.post("http://44.211.253.232:3000/users/signup", userDetails);
+        let response = await axios.post("http://34.227.178.35:3000/users/signup", userDetails);
         console.log(response);
         alert("User Signed In Successfully");
         window.location.href = '../Login/login.html';
